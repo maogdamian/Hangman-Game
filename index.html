@@ -1,54 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Hangman Game</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.4/howler.min.js"></script>
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
-</head>
-<body>
 
-<!-- Logo -->
-	<header>
-		<div class="wrapper">	
-			<div class="logo">
-				<img src="assets/images/placeholder">
-				<div class="subtitle">
-					<h1>Overwatch Hangman</h1>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+		<title>Overwatch Hangman</title>
+	</head>
+
+	<body id ="body" class = "modal-open">
+		<nav id="navbar" class="navbar navbar-default navbar-inverse">
+				<div class="container">
+					<div class="navbar-header">
+			      		<h1 class="navbar-brand">OverWatch Hangman</j1>
+					</div>
+					
+					</div>
 				</div>
-			</div>
-		</div>
-	</header>
+			</nav>
 
-<!-- Game Screen -->
+
+
+			<!-- Win Modal -->
+			<div id="modal" class="modal text-center">
 	
-	<section>
-		<div class="wrapper">
-			<h2>Press Any Key to get started!</h2>
-		<div class="status">
+			</div>
 
-				<h3>Win Streak: </h3>
-					<p><span id="wins"></span></p>
-				<h3>Number of Guesses Left: </h3>
-				<div id="heart">
-					<p><span id="guesses"></span></p>
+
+			<!-- Intro Modal -->
+			<div id="intro-modal" class = "modal text-center">
+				<h1 id="modal-title">Hangman</h1>
+
+				<audio id="match-begin">
+					  <source src="assets/sounds/matchBegin.mp3" type="audio/mpeg">
+				</audio loop>
+				<div><button id="new-game-1" class = "new-game btn btn-default" onclick="startGame()">New Game</button></div>
+			</div>
+
+			<!-- MAIN CONTAINER-->
+ 
+			<div class="container" id = "content-container">
+
+				<div class= "row row-centered">
+
+					<div class="col-md-12 text-center banner col-centered">
+						<img class="img-responsive banner-img thumbnail" src="assets/images/overwatch_logo.png">
+
+					</div>
 				</div>
-			</div>
-		
-		<div class="game-window">
-				<p>Current Word: </p>
-					<p><span id="currentWord"></span></p>
-			</div>
-		
-		<div class="player-info">
-				<p>Letters already guessed</p>
-					<p><span id="guessedLetters"></span></p>
-				<p id="warning"></p>
-			</div>
-		</div>
-	</section>
 
-</body>
+				<div class="row text-center">
+					<div class="col-md-12 text-center">
+
+						<div>
+ 
+							<h2 class="guessed-letters"></h2>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row row-centered text-center" id="guess-display">
+					<div class="col-xs-3 col-sm-3"></div><!--Empty column -->
+						<!-- Misses go here -->
+
+					<div class="col-xs-1 col-sm-1 misses-col text-center">
+						<div id="missesOne" class="misses"></div>
+					</div>
+
+					<div class="col-xs-1 col-sm-1 misses-col text-center">
+						<div id="missesTwo" class="misses"></div>
+
+					</div>
+
+					<div class="col-xs-1 col-sm-1 misses-col text-center">
+						<div id="missesThree" class="misses"></div>
+
+					</div>
+
+					<div class="col-xs-1 col-sm-1 misses-col text-center">
+						<div id="missesFour" class="misses"></div>
+					</div>
+
+					<div class="col-xs-1 col-sm-1 text-center misses-col">
+						<div id="missesFive" class="misses"></div>
+					</div>
+
+					<div class="col-xs-1 col-sm-1 text-center misses-col">
+						<div id="missesSix" class="misses"></div>
+					</div>
+
+					<div class="col-xs-3 col-sm-3 text-center"></div><!--Empty column -->
+
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="page-header">
+							<h1 class="puzzle"></h1>
+						</div>
+
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div>
+							<h2 class="wins"> </h2>
+						</div>
+					</div>
+				</div>
+
+			
+				
+						<button id="new-game-2" class = "new-game btn btn-default" onclick="startGame()">New Game</button>
+					
+					</div>
+				</div>			
+			</div>
+
+
+			<!--FOOTER-->
+			<nav id="footer" class="navbar navbar-default navbar-inverse">
+				<div class="container text-center">
+					<p class ="footer-motto hvr-underline-from-left"> </p>
+					<h5><b>	</b></h5>
+				</div>
+			</nav>
+		
+		
+		
+		<script src="assets/javascript/game.js"></script>
+	</body>
+
 </html>

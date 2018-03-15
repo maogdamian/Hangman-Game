@@ -1,100 +1,223 @@
-*{
-	box-sizing: border-box;
+
+/* Add Overwatch font for TITLES/HEADINGS */
+@font-face { font-family: "Overwatch"; src: 
+url("http://us.battle.net/forums/static/fonts/bignoodletoo/bignoodletoo.woff") format('woff'); }
+
+@font-face { font-family: "bignoodle"; src: 
+url("big_noodle_titling.ttf") format('woff'); }
+
+@font-face { font-family: "bignoodle-oblique"; src: 
+url("big_noodle_titling_oblique.ttf") format('woff'); }
+
+
+
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
 }
 
-body{
-	color: #fff;
-	background-color: #000;
-	font-family: Arial, san-serif;
-	font-size: 25px;
+
+#content-container {
+	box-shadow: 10px 10px 5px 10px #888888;
+    width: 75%;
 }
 
-header{
-	height: 200px;
-	width: 100%;
-	margin-bottom: 50px;
+/* Navbar */
+
+#navbar {
+	padding: 0;
+    margin-bottom: 2%;
+    background: linear-gradient(#d9d9d9, #fff);
+    border: 0;
 }
 
+.navbar-header {
+    float: left;
+    text-align: center;
+    width: 100%;
 
-h1{
-	font-size: 200%;
 }
 
-h2{
-	font-size: 150%;
-	margin-bottom: 20px;
-	/*color: blue;*/
+.navbar-brand {
+	float:none;
+	font-family: "bignoodle-oblique";
+	font-size: 36px;
+	
+
+/********* Main Page******************************************************************************/
+
 }
 
-div{
-	padding: 20px 30px;
+.page-header {
+	font-family: "bignoodle";
 }
 
-p{
-	margin: 10px;
+.banner {
+
+	width: 60%;
 }
 
-.wrapper{
-	margin: 0 auto;
-	width: 960px;
+#guess-display {
+
+	font-family: "bignoodle";
 	text-align: center;
 }
 
-.logo img{
-	width: 50%;
-	height: 50%;
+
+
+h2 {
+	font-family: "bignoodle";
 }
 
 
-.status{
-	float:left;
-	height: 300px;
-	width: 30%;
-	border: 3px solid #fff;
+/* Miss Image */
+.misses {
+	width: 100px;
+	height: 100px;
+	padding-right: 10%;
+    margin-right: 20%;
 }
 
-.game-window{
-	float: right;
-	height: 300px;
-	width: 70%;
-	border: 3px solid #fff;
+.misses-col {
+    padding-left: 0;
 }
 
-.game-window p{
-	margin-top: 40px;
+.misses img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5%;
 }
 
-.player-info{
-	clear: both;
-	width: 100%;
-	overflow: hidden;
-	height: 200px;
-	border: 3px solid #fff;
+.new-game {
+	margin-bottom: 20px;
+    font-family: "bignoodle"
 }
 
-#currentWord{
-	text-transform: uppercase;
-	font-size: 250%;
+#new-game-1 {
+    margin-top: 30px;
+    padding: 18px 28px;
+    font-size: 22px;
 }
 
-#wins{
-	font-size: 250%;
+
+/* Footer *******************************************************************************************/
+
+#footer {
+	box-sizing: border-box;
+	background: linear-gradient(#fff, #d9d9d9);
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	padding: 25px;
+	margin-top: 80px;	
+	border: 0;
 }
 
-/* Positions the Guesses in the Heart */
-#guesses{
-	position: relative;
-	top: -25px;
-	left: -5px;
-	font-size: 250%;
-	z-index: 1;
+#footer div h5 {
+	margin-top: 3%;
+	color: #fff;
 }
 
-#guessedLetters{
-	font-size: 250%;
-	text-transform: uppercase;
+.footer-motto {
+	color:  #8d9093;
+	font-size: 24px;
+	margin: 0;
 }
 
-#warning{
-	font-size: 150%;
+/* The Modal (background) */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    position: center;
+}
+
+#intro-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background: linear-gradient(#d9d9d9, #fff); /* Fallback color */
+    /*background-color: black; /* Black w/ opacity */
+    position: center;
+}
+
+#intro-modal img {
+    margin-top: 7.5%;
+    border-radius: 5%;
+}
+
+#modal img {
+    margin-top: 12%;
+	width: 20%;
+	border-radius: 5%;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+}
+
+#modal-title {
+    font-family: "bignoodle-oblique";
+    font-size: 48px;
+}
+
+@media screen and (min-width: 750px) and (max-width: 992px){
+
+     /*Miss Image */
+    .misses {
+        width: 90%;
+        height: 90%;
+        padding-right: 10%;
+    }
+
+    .misses img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5%;
+    }
+}
+
+@media screen and (max-width: 749px) {
+    /*Miss Image */
+    .misses {
+        width: 30px;
+        height: 30px;
+        padding-right: 10%;
+    }
+
+    .misses img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5%;
+    }
+
 }
