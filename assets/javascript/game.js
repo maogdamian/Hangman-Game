@@ -857,6 +857,6 @@ window.onload = function() {
 	var introVideo = document.getElementById("intro-video")
 	loadIntroModalImage()
 	displayIntroModal();
-	matchBegin.play()
+	welcome.play()
 }
 window.addEventListener("keyup", keyPress.bind(event));
